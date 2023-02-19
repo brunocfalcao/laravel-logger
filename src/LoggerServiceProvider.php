@@ -1,10 +1,10 @@
 <?php
 
-namespace Brunocfalcao\Helpers;
+namespace Brunocfalcao\Logger;
 
 use Illuminate\Support\ServiceProvider;
 
-class HelpersServiceProvider extends ServiceProvider
+class LoggerServiceProvider extends ServiceProvider
 {
     public function boot()
     {

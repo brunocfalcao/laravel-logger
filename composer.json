@@ -1,10 +1,10 @@
 {
-    "name": "brunocfalcao/laravel-helpers",
-    "description": "Laravel Helpers - Swiss army knife to complement your web apps",
+    "name": "brunocfalcao/laravel-logger",
+    "description": "Laravel Logger - An application logger on steroids",
     "keywords": [
         "brunocfalcao"
     ],
-    "homepage": "https://github.com/brunocfalcao/brunocfalcao/laravel-helpers",
+    "homepage": "https://github.com/brunocfalcao/brunocfalcao/laravel-logger",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Brunocfalcao\\Helpers\\": "src/"
+            "Brunocfalcao\\Logger\\": "src/"
         }
     },
     "config": {
@@ -31,7 +31,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Brunocfalcao\\Helpers\\HelperServiceProvider"
+                "Brunocfalcao\\Logger\\LoggerServiceProvider"
             ]
         }
     }
