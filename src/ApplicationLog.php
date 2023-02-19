@@ -9,14 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ApplicationLog
 {
-    public static function __callStatic($method, $args)
-    {
-        return ApplicationLogService::new()->{$method}(...$args);
-    }
-}
-
-class ApplicationLogService
-{
     protected $group;
 
     protected $relatedTo;
@@ -30,7 +22,7 @@ class ApplicationLogService
         //
     }
 
-    public static function new(...$args)
+    public static function make(...$args): self
     {
         return new self(...$args);
     }
@@ -56,9 +48,9 @@ class ApplicationLogService
      */
     public function relatedTo(Model $model)
     {
-        $this->relatedTo = $model;
-
-        return $this;
+        return tap($this, function () use ($model) {
+            $this->relatedTo = $model;
+        });
     }
 
     public function group(string $name)
@@ -70,7 +62,9 @@ class ApplicationLogService
 
     public function log(string $description = null)
     {
+        // Aux variable to be used in the throw() if necessary.
         $this->description = $description;
+
         $log = new ApplicationLogModel();
 
         // Morphable relationships: causable and relatable.
@@ -96,6 +90,10 @@ class ApplicationLogService
 
     public function throw(string $message = null)
     {
+        /**
+         * If we don't pass a description, it tries to fallback to
+         * the customized description.
+         */
         if (is_null($message)) {
             $message = $this->description;
         }

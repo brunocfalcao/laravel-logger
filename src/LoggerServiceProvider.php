@@ -2,7 +2,6 @@
 
 namespace Brunocfalcao\Logger;
 
-use Brunocfalcao\Logger\ApplicationLog;
 use Illuminate\Support\ServiceProvider;
 
 class LoggerServiceProvider extends ServiceProvider

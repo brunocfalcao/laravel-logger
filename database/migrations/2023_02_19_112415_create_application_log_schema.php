@@ -26,11 +26,9 @@ return new class extends Migration
             $table->longText('properties')
                   ->nullable();
 
-            $table->morphs('causable')
-                  ->nullable();
+            $table->morphs('causable');
 
-            $table->morphs('relatable')
-                  ->nullable();
+            $table->morphs('relatable');
 
             $table->timestamps();
         });
