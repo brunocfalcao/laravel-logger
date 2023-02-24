@@ -30,7 +30,6 @@ class ApplicationLog
     /**
      * Extra properties we want to record into the log.
      *
-     * @param  array  $properties
      * @return self
      */
     public function properties(array $properties)
@@ -43,7 +42,6 @@ class ApplicationLog
     /**
      * A custom related model that will be related with the log entry.
      *
-     * @param  Model  $model
      * @return self
      */
     public function relatedTo(Model $model)
